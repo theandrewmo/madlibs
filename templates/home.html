@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Madlibs</title>
+        </head>
+        <body>
+            <form action='http://127.0.0.1:5000/story' method="POST">
+                {%  for prompt in prompts  %}
+                    <input type="text" placeholder="{{prompt}}" name="{{prompt}}" required>
+                {% endfor %}
+                <input type="submit" value="submit">
+            </form>
+        </body>
+    </html>
