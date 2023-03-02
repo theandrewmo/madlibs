@@ -11,7 +11,7 @@ debug = DebugToolbarExtension(app)
 def index():
     """ Show homepage with form """
     
-    return render_template('home.html', prompts=story.prompts)
+    return render_template('base.html', prompts=story.prompts)
 
 @app.route('/story', methods=["POST"])
 def story_page():
