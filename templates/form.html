@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block form %}
+<form action='http://127.0.0.1:5000/story/{{ind}}' method="POST">
+    {%  for prompt in prompts  %}
+    <div class="sideby">
+    <label for="{{prompt}}">{{prompt}}:</label>
+    <input type="text" placeholder="{{prompt}}" name="{{prompt}}" required minlength="3" >
+    </div>
+    {% endfor %}
+    <input type="submit" value="submit" class="submit"> 
+</form>
+{% endblock %}
