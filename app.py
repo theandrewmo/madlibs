@@ -19,12 +19,21 @@ def form():
     """ Show form with prompts for chosen story instance"""
 
     ind = int(request.form.get('stories'))
-    return render_template('form.html', prompts=stories[ind].prompts, ind=ind)
+    return render_template('form.html', prompts=stories[ind].prompts, ind=ind+1)
+
+@app.route('/story/<int:storyInd>')
+def find_story(storyInd):
+    """ Show story """
+
+    form_data = request.form
+    new_story = stories[storyInd - 1].generate(form_data)
+    return render_template('story.html', new_story=new_story)
 
 @app.route('/story/<int:storyInd>', methods=["POST"])
 def story_page(storyInd):
     """ Show story """
 
     form_data = request.form
-    new_story = stories[storyInd].generate(form_data)
+    new_story = stories[storyInd - 1].generate(form_data)
     return render_template('story.html', new_story=new_story)
+

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block form %}
+<h2>Your Story</h2>
 <form action='http://127.0.0.1:5000/story/{{ind}}' method="POST">
     {%  for prompt in prompts  %}
     <div class="sideby">
